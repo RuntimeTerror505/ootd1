@@ -18,6 +18,6 @@ function showNotification(message, registration) {
             // icon: './assets/mahestic.png',
         };
 
-        registration.showNotification('Notification', options);
+        self.registration.showNotification('Notification', options);
     }
 }
