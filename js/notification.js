@@ -32,7 +32,9 @@ if ('Notification' in window && Notification.permission !== 'denied') {
 
 // Функція для відображення сповіщень
 function showNotification(message) {
+    console.log(message);
     if (Notification.permission === 'granted') {
+        console.log(Notification.permission);
         const options = {
             body: message,
             icon: './assets/mahestic.png',
