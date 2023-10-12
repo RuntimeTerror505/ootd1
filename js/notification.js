@@ -3,22 +3,17 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
 
-            showNotification("Your message here", registration);
+            if (Notification.permission === 'granted') {
+                console.log(Notification.permission);
+                const options = {
+                    body: "Your message here",
+                    // icon: './assets/mahestic.png',
+                };
+
+                registration.showNotification('Notification', options);
+            }
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
         });
-}
-
-// Функція для відображення сповіщень
-function showNotification(message, registration) {
-    if (Notification.permission === 'granted') {
-        console.log(message, registration);
-        const options = {
-            body: message,
-            // icon: './assets/mahestic.png',
-        };
-
-        registration.showNotification('Notification', options);
-    }
 }
