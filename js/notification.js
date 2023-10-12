@@ -13,11 +13,12 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 // Функція для відображення сповіщень
 function showNotification(message, registration) {
     if (Notification.permission === 'granted') {
+        console.log(message, registration);
         const options = {
             body: message,
             // icon: './assets/mahestic.png',
         };
 
-        self.registration.showNotification('Notification', options);
+        registration.showNotification('Notification', options);
     }
 }
