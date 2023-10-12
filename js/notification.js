@@ -19,7 +19,7 @@ if ('serviceWorker' in navigator) {
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
 
-            showNotification("Your look 'category name' moved up in the Leaderboard <3", 10000);
+            showNotificationInterval("Your look 'category name' moved up in the Leaderboard <3", 10000);
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
