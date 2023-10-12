@@ -8,7 +8,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                 if (perm === 'granted') {
                     console.log(perm);
 
-                    showNotification("Your message here");
+                    showNotification("You’re now #1 in “category name” xx");
 
                 }
             })
@@ -24,7 +24,7 @@ function showNotification(message) {
         {
             body: `${message}`,
             // data: { hello: 'world' },
-            icon: '../assets/majestic.png',
+            icon: '../assets/manifes.png',
             // tag: "welcome"
         })
 
