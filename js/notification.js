@@ -31,7 +31,7 @@ function showNotification(message) {
     const notification = new Notification('OOTD',
         {
             body: `${message}`,
-            icon: '../assets/majestic.png',
+            icon: '../assets/manifest.png',
             // tag: "welcome"
         })
 
