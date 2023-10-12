@@ -38,6 +38,6 @@ function showNotification(message) {
             icon: './assets/mahestic.png',
         };
 
-        const notification = new Notification('Notification', options);
+        new Notification('Notification', options);
     }
 }
