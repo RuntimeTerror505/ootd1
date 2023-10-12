@@ -28,10 +28,9 @@ if ('serviceWorker' in navigator) {
 
 // Функція для відображення сповіщень
 function showNotification(message) {
-    const notification = new Notification('Text',
+    const notification = new Notification('OOTD',
         {
             body: `${message}`,
-            data: { hello: 'world' },
             icon: '../assets/majestic.png',
             // tag: "welcome"
         })
