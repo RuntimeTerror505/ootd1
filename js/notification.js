@@ -14,22 +14,24 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         });
 }
 
-function showNotificationInterval(message, interval) {
-    showNotification(message);
-    setInterval(() => showNotification(message), interval);
-}
-
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('../js/service-workers.js')
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
 
-            showNotification("Your look 'category name' moved up in the Leaderboard <3");
+            showNotification("Your look 'category name' moved up in the Leaderboard <3", 10000);
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
         });
 }
+
+function showNotificationInterval(message, interval) {
+    showNotification(message);
+    setInterval(() => showNotification(message), interval);
+}
+
+
 
 // Функція для відображення сповіщень
 function showNotification(message) {
