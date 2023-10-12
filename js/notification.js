@@ -20,10 +20,10 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 // Функція для відображення сповіщень
 function showNotification(message) {
-    const notification = new Notification('Text',
+    const notification = new Notification('OOTD MESSAGE',
         {
             body: `${message}`,
-            data: { hello: 'world' },
+            // data: { hello: 'world' },
             icon: '../assets/majestic.png',
             // tag: "welcome"
         })
