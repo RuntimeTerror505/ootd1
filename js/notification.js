@@ -7,30 +7,30 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
                 if (perm === 'granted') {
                     console.log(perm);
-                    // const options = {
-                    //     body: "Your message here",
-                    //     // icon: './assets/mahestic.png',
-                    // };
 
-                    const notification = new Notification('Text',
-                        {
-                            body: 'More text',
-                            data: { hello: 'world' },
-                            // icon: '../assets/majestic.png',
-                            // tag: "welcome"
-                        })
+                    showNotification("Your message here");
 
-
-                    notification.addEventListener('error', e => {
-                        console.log(e);
-                    })
-                    // registration.showNotification('Notification', options);
                 }
             })
-
-
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
         });
 }
+
+// Функція для відображення сповіщень
+function showNotification(message) {
+    const notification = new Notification('Text',
+        {
+            body: `${message}`,
+            data: { hello: 'world' },
+            // icon: '../assets/majestic.png',
+            // tag: "welcome"
+        })
+
+
+    notification.addEventListener('error', e => {
+        console.log(e);
+    })
+}
+
