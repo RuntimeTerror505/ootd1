@@ -44,6 +44,6 @@ function showNotification(message) {
             icon: './assets/majestic.png', // Ви маєте помилку в шляху до іконки
         };
 
-        self.registration.showNotification('Notification', options); // Зміни showNotification на self.registration.showNotification
+        registration.showNotification('Notification', options); // Зміни showNotification на self.registration.showNotification
     }
 }
