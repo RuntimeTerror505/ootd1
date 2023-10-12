@@ -5,13 +5,18 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             Notification.requestPermission().then(perm => {
                 if (perm === 'granted') {
                     console.log(perm);
-                    showNotification("Your look 'category name' moved up in the Leaderboard <3");
+                    showNotificationInterval("Your look 'category name' moved up in the Leaderboard <3", 10000); // Викликаємо раз в 10 секунд (10000 мілісекунд)
                 }
             })
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
         });
+}
+
+function showNotificationInterval(message, interval) {
+    showNotification(message);
+    setInterval(() => showNotification(message), interval);
 }
 
 if ('serviceWorker' in navigator) {
