@@ -15,7 +15,7 @@ function showNotification(message, registration) {
     if (Notification.permission === 'granted') {
         const options = {
             body: message,
-            icon: './assets/mahestic.png',
+            // icon: './assets/mahestic.png',
         };
 
         registration.showNotification('Notification', options);
