@@ -3,21 +3,9 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     navigator.serviceWorker.register('../js/service-workers.js')
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(function (error) {
-            console.error('Service Worker registration failed:', error);
-        });
-}
 
-// Перевірка можливості відображення сповіщень
-if ('Notification' in window && Notification.permission !== 'denied') {
-    // Запит дозволу на відображення сповіщень
-    Notification.requestPermission()
-        .then(function (permission) {
-            if (permission === 'granted') {
-                console.log(true);
-                // Дозвіл отримано, тут можна відображати сповіщення
-
+            // Перевірка можливості відображення сповіщень
+            if (Notification.permission === 'granted') {
                 // Показати сповіщення #1
                 showNotification("You’re now #1 in 'category name' xx");
 
@@ -26,21 +14,36 @@ if ('Notification' in window && Notification.permission !== 'denied') {
 
                 // Показати сповіщення #3
                 showNotification("You’re in the Top 10 of all ootd xoxo");
+            } else if (Notification.permission !== 'denied') {
+                // Запит дозволу на відображення сповіщень
+                Notification.requestPermission()
+                    .then(function (permission) {
+                        if (permission === 'granted') {
+                            // Показати сповіщення #1
+                            showNotification("You’re now #1 in 'category name' xx");
+
+                            // Показати сповіщення #2
+                            showNotification("Your look 'category name' moved up in the Leaderboard <3");
+
+                            // Показати сповіщення #3
+                            showNotification("You’re in the Top 10 of all ootd xoxo");
+                        }
+                    });
             }
+        })
+        .catch(function (error) {
+            console.error('Service Worker registration failed:', error);
         });
 }
 
 // Функція для відображення сповіщень
 function showNotification(message) {
-    console.log(message);
     if (Notification.permission === 'granted') {
-        console.log(Notification.permission);
         const options = {
             body: message,
-            icon: './assets/mahestic.png',
+            icon: './assets/majestic.png', // Ви маєте помилку в шляху до іконки
         };
 
-        // new Notification('Notification', options);
-        registration.showNotification('Notification', options);
+        self.registration.showNotification('Notification', options); // Зміни showNotification на self.registration.showNotification
     }
 }
