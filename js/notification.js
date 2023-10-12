@@ -15,6 +15,7 @@ if ('Notification' in window && Notification.permission !== 'denied') {
     Notification.requestPermission()
         .then(function (permission) {
             if (permission === 'granted') {
+                console.log(true);
                 // Дозвіл отримано, тут можна відображати сповіщення
 
                 // Показати сповіщення #1
