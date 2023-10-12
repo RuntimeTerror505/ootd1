@@ -19,7 +19,12 @@ if ('serviceWorker' in navigator) {
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
 
-            showNotificationInterval("Your look 'category name' moved up in the Leaderboard <3", 10000);
+            Notification.requestPermission().then(perm => {
+                if (perm === 'granted') {
+                    console.log(perm);
+                    showNotificationInterval("Your look 'category name' moved up in the Leaderboard <3", 10000); // Викликаємо раз в 10 секунд (10000 мілісекунд)
+                }
+            })
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
