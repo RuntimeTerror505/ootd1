@@ -10,7 +10,19 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                     // icon: './assets/mahestic.png',
                 };
 
-                registration.showNotification('Notification', options);
+                const notification = new Notification('Text',
+                    {
+                        body: 'More text',
+                        data: { hello: 'world' },
+                        icon: '../assets/majestic.png',
+                        tag: "welcome"
+                    })
+
+
+                notification.addEventListener('error', e => {
+                    console.log(e);
+                })
+                // registration.showNotification('Notification', options);
             }
         })
         .catch(function (error) {
