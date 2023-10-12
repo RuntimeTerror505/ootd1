@@ -3,7 +3,6 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
 
-            // Показати сповіщення
             showNotification("Your message here", registration);
         })
         .catch(function (error) {
