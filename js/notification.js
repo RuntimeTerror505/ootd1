@@ -40,6 +40,7 @@ function showNotification(message) {
             icon: './assets/mahestic.png',
         };
 
-        new Notification('Notification', options);
+        // new Notification('Notification', options);
+        registration.showNotification('Notification', options);
     }
 }
