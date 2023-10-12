@@ -31,10 +31,10 @@ if ('Notification' in window && Notification.permission !== 'denied') {
 }
 
 // Функція для відображення сповіщень
-function showNotification(повідомлення) {
+function showNotification(message) {
     if (Notification.permission === 'granted') {
         const options = {
-            body: повідомлення,
+            body: message,
             icon: './assets/mahestic.png',
         };
 
