@@ -24,8 +24,8 @@ function showNotification(message) {
         {
             body: `${message}`,
             data: { hello: 'world' },
-            // icon: '../assets/majestic.png',
-            // tag: "welcome"
+            icon: '../assets/majestic.png',
+            tag: "welcome"
         })
 
 
