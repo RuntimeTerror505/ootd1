@@ -3,27 +3,32 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
 
-            if (Notification.permission === 'granted') {
-                console.log(Notification.permission);
-                const options = {
-                    body: "Your message here",
-                    // icon: './assets/mahestic.png',
-                };
+            Notification.requestPermission().then(perm => {
 
-                const notification = new Notification('Text',
-                    {
-                        body: 'More text',
-                        data: { hello: 'world' },
-                        icon: '../assets/majestic.png',
-                        tag: "welcome"
+                if (perm === 'granted') {
+                    console.log(perm);
+                    // const options = {
+                    //     body: "Your message here",
+                    //     // icon: './assets/mahestic.png',
+                    // };
+
+                    const notification = new Notification('Text',
+                        {
+                            body: 'More text',
+                            data: { hello: 'world' },
+                            // icon: '../assets/majestic.png',
+                            // tag: "welcome"
+                        })
+
+
+                    notification.addEventListener('error', e => {
+                        console.log(e);
                     })
+                    // registration.showNotification('Notification', options);
+                }
+            })
 
 
-                notification.addEventListener('error', e => {
-                    console.log(e);
-                })
-                // registration.showNotification('Notification', options);
-            }
         })
         .catch(function (error) {
             console.error('Service Worker registration failed:', error);
